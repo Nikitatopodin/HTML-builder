@@ -11,7 +11,7 @@ async function getFilesInfo() {
         path.join(dirPath, file),
         (err, stats) => {
           if (err) throw err;
-          if (stats.blocks) {
+          if (stats.isFile()) {
             const name = file.slice(0, file.indexOf('.'));
             const ext = file.slice(file.lastIndexOf('.') + 1);
             const size = stats.size / 1000;
