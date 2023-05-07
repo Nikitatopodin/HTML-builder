@@ -1,4 +1,4 @@
-const fs = require('fs');
+const { createWriteStream, appendFile } = require('fs');
 const path = require('path');
 const { stdin: input, stdout: output } = require('process');
 const readline = require('node:readline');
@@ -6,7 +6,7 @@ const readline = require('node:readline');
 const filePath = path.join(__dirname, 'text.txt');
 const rl = readline.createInterface({ input, output });
 
-fs.createWriteStream(filePath);
+createWriteStream(filePath);
 
 output.write('Введите текст, который хотите добавить, или exit, если хотите закончить\n');
 
@@ -15,7 +15,7 @@ rl.on('line', (input) => {
     console.log('Всего Вам доброго!');
     process.exit();
   }
-  fs.appendFile(
+  appendFile(
     filePath,
     input + '\n',
     err => {
