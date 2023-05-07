@@ -1,9 +1,9 @@
 const { createWriteStream, appendFile } = require('fs');
-const path = require('path');
+const { join } = require('path');
 const { stdin: input, stdout: output } = require('process');
 const readline = require('node:readline');
 
-const filePath = path.join(__dirname, 'text.txt');
+const filePath = join(__dirname, 'text.txt');
 const rl = readline.createInterface({ input, output });
 
 createWriteStream(filePath);
